@@ -10,77 +10,243 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Custom styles for the toggle buttons */
+      .toggle-button {
+        background-color: #343a40; /* Dark gray background */
+        color: #fff; /* White text color */
+        border: none; /* Remove button border */
+      }
+      .toggle-button:focus {
+        box-shadow: none; /* Remove button focus shadow */
+      }
+      /* Custom styles for the main content */
+      .image-grid {
+        display: none; /* Initially hide the image grid */
+      }
+    </style>
   </head>
   <body>
     <div class="container">
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">Breathe Code Photo Feed</span>
+          <i class="fab fa-instagram"></i>
+          <span class="navbar-brand mb-0 h1">Instagram</span>
+          <div class="btn-group ms-auto">
+            <button
+              type="button"
+              class="btn btn-success"
+              data-bs-toggle="modal"
+              data-bs-target="#postModal"
+            >
+              Create a new post
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fas fa-cog"></i>
+              <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Accessibility</a></li>
+              <li>
+                <a class="dropdown-item" href="#">Privacy and Security</a>
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
+            </ul>
+          </div>
         </div>
       </nav>
-      <div class="row mt-3">
-        <div class="col"></div>
+      <div class="container">
+        <div class="row justify-content-center mt-3">
+          <div class="col-auto">
+            <button
+              type="button"
+              class="btn toggle-button"
+              onclick="toggleCurrentView()"
+            >
+              <i class="fas fa-th-list"></i>
+              <!-- Icon for current view -->
+            </button>
+          </div>
+          <div class="col-auto">
+            <button
+              type="button"
+              class="btn toggle-button"
+              onclick="toggleImageView()"
+            >
+              <i class="fas fa-th"></i>
+              <!-- Icon for image view -->
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
-        <div class="col">
-          <div class="card">
-            <div class="card-header">
-              <h2 class="card-title">My first photo</h2>
-              <div class="card-subtitle mb-2 text-muted">12/14</div>
+      <div class="container mt-3">
+        <!-- Content with current styling -->
+        <div class="current-view">
+          <!-- This content will be visible initially -->
+          <div class="row mt-3">
+            <div class="col"></div>
+          </div>
+          <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+            <div class="col">
+              <div class="card">
+                <div class="card-header">
+                  <h2 class="card-title">My first photo</h2>
+                  <div class="card-subtitle mb-2 text-muted">12/14</div>
+                </div>
+                <img
+                  src="https://c4.wallpaperflare.com/wallpaper/338/920/916/cute-husky-puppy-wallpaper-preview.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <p class="card-text">
+                    This is my first photo of the feed. this is a multi line
+                    comment for testing purposes. I am learning to code with
+                    <strong>#BreatheCode</strong>
+                  </p>
+                </div>
+              </div>
             </div>
-            <img
-              src="https://c4.wallpaperflare.com/wallpaper/338/920/916/cute-husky-puppy-wallpaper-preview.jpg"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <p class="card-text">
-                This is my first photo of the feed. this is a multi line comment
-                for testing purposes. I am learning to code with
-                <strong>#BreatheCode</strong>
-              </p>
+            <div class="col">
+              <div class="card">
+                <div class="card-header">
+                  <h2 class="card-title">My first photo</h2>
+                  <div class="card-subtitle mb-2 text-muted">12/16</div>
+                </div>
+                <img
+                  src="https://i.imgur.com/Po4Lkl1.jpeg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <p class="card-text">
+                    This is me waiting for the screen to show my awesome first
+                    website made at <strong>#BreatheCode</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <div class="card-header">
+                  <h2 class="card-title">And of course...food!</h2>
+                  <div class="card-subtitle mb-2 text-muted">12/17</div>
+                </div>
+                <img
+                  src="https://cicili.tv/wp-content/uploads/DSC00017-1.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <p class="card-text">
+                    Because no photo feed is cool without some food on it!
+                    <strong>#BreatheCode</strong>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card">
-            <div class="card-header">
-              <h2 class="card-title">My first photo</h2>
-              <div class="card-subtitle mb-2 text-muted">12/16</div>
+        <!-- Image grid view -->
+        <div class="image-grid">
+          <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+            <div class="col">
+              <img
+                src="https://c4.wallpaperflare.com/wallpaper/338/920/916/cute-husky-puppy-wallpaper-preview.jpg"
+                class="img-thumbnail"
+                alt="My first photo"
+              />
             </div>
-            <img
-              src="https://i.imgur.com/Po4Lkl1.jpeg"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <p class="card-text">
-                This is me waiting for the screen to show my awesome first
-                website made at <strong>#BreatheCode</strong>
-              </p>
+            <div class="col">
+              <img
+                src="https://i.imgur.com/Po4Lkl1.jpeg"
+                class="img-thumbnail"
+                alt="My first photo"
+              />
             </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="card-header">
-              <h2 class="card-title">And of course...food!</h2>
-              <div class="card-subtitle mb-2 text-muted">12/17</div>
-            </div>
-            <img
-              src="https://cicili.tv/wp-content/uploads/DSC00017-1.jpg"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <p class="card-text">
-                Because no photo feed is cool without some food on it!
-                <strong>#BreatheCode</strong>
-              </p>
+            <div class="col">
+              <img
+                src="https://cicili.tv/wp-content/uploads/DSC00017-1.jpg"
+                class="img-thumbnail"
+                alt="And of course...food!"
+              />
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div
+      class="modal fade"
+      id="postModal"
+      tabindex="-1"
+      aria-labelledby="postModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="postModalLabel">Create a New Post</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function toggleCurrentView() {
+        // Toggle between the current view and the image grid view
+        var currentView = document.querySelector(".current-view");
+        var imageGrid = document.querySelector(".image-grid");
+
+        if (currentView.style.display === "none") {
+          currentView.style.display = "block";
+          imageGrid.style.display = "none";
+        } else {
+          currentView.style.display = "none";
+          imageGrid.style.display = "block";
+        }
+      }
+
+      function toggleImageView() {
+        // Toggle between the image grid view and the current view
+        var currentView = document.querySelector(".current-view");
+        var imageGrid = document.querySelector(".image-grid");
+
+        if (imageGrid.style.display === "none") {
+          currentView.style.display = "none";
+          imageGrid.style.display = "block";
+        } else {
+          currentView.style.display = "block";
+          imageGrid.style.display = "none";
+        }
+      }
+    </script>
   </body>
 </html>
